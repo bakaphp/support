@@ -20,7 +20,7 @@ build:
 
     tests:
         override:
-          - composer grump
+          - composer test
           -
             command: './vendor/bin/codecept run --coverage-xml'
             coverage:
