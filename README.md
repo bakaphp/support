@@ -1,6 +1,6 @@
 # Baka Support
 
-A curated collection of useful PHP snippets
+A curated collection of useful PHP snippets.
 
 ## Requirements
 
