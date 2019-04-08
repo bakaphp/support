@@ -10,6 +10,7 @@ build:
         node: false
         php:
           version: 7.0
+          compile_options: '--enable-zip'
           ini:
             'date.timezone': 'UTC'
             
