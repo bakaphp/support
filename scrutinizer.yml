@@ -9,16 +9,14 @@ build:
         redis: false
         node: false
         php:
-          version: 7.0
-          compile_options: '--enable-zip --with-openssl=/usr/local'
+          version: 7.1
+          compile_options: '--enable-zip'
           ini:
             'date.timezone': 'UTC'
-            
     dependencies:
         before:
           - 
             command: echo "zend_extension=xdebug.so" | sudo tee -a "/home/scrutinizer/.phpenv/versions/$(php -v | grep -Po '(?<=^PHP )[^ ]+')/etc/php.ini"
-
     tests:
         override:
           - composer test
@@ -27,19 +25,22 @@ build:
             coverage:
               file: './tests/_output/coverage.xml'
               format: 'clover'
-
+    nodes:
+        analysis:
+            tests:
+                override:
+                    - php-scrutinizer-run
+        tests: true
 filter:
   paths: ['./*']
   excluded_paths:
     - 'tests/*'
     - 'storage/*'
     - 'vendor/*'
-
 tools:
   php_analyzer: true
   php_mess_detector: true
   php_code_coverage: true
-
 checks:
   php:
     verify_property_names: true
