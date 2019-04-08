@@ -12,6 +12,8 @@ build:
           version: 7.2
           ini:
             'date.timezone': 'UTC'
+          pecl_extensions:
+            - zip
     dependencies:
         before:
           - 
