@@ -10,7 +10,7 @@ build:
         node: false
         php:
           version: 7.0
-          compile_options: '--enable-zip'
+          compile_options: '--enable-zip --with-openssl=/usr/local'
           ini:
             'date.timezone': 'UTC'
             
