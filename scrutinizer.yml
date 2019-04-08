@@ -9,8 +9,7 @@ build:
         redis: false
         node: false
         php:
-          version: 7.1
-          compile_options: '--enable-zip --with-openssl'
+          version: 7.2
           ini:
             'date.timezone': 'UTC'
     dependencies:
