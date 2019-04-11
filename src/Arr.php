@@ -144,7 +144,7 @@ class Arr
      *
      * @return array
      */
-    public function orderBy(array $items, $attr, $order): array
+    public static function orderBy(array $items, $attr, $order): array
     {
         $sortedItems = [];
         foreach ($items as $item) {
