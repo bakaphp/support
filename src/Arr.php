@@ -8,9 +8,9 @@ class Arr
      *Returns true if the provided function returns true for all elements of an array, false otherwise.
      *
      * @param array $items
-     * @param [type] $func
+     * @param callable $func
      */
-    public static function all(array $items, $func): bool
+    public static function all(array $items, callable $func): bool
     {
         return count(array_filter($items, $func)) === count($items);
     }
@@ -19,9 +19,9 @@ class Arr
      * Returns true if the provided function returns true for at least one element of an array, false otherwise.
      *
      * @param array $items
-     * @param [type] $func
+     * @param callable $func
      */
-    public static function any(array $items, $func): bool
+    public static function any(array $items, callable $func): bool
     {
         return count(array_filter($items, $func)) > 0;
     }
@@ -30,9 +30,9 @@ class Arr
      * Chunks an array into smaller arrays of a specified size.
      *
      * @param array $items
-     * @param [type] $size
+     * @param int $size
      */
-    public static function chunk(array $items, $size): array
+    public static function chunk(array $items, int $size): array
     {
         return array_chunk($items, $size);
     }
@@ -62,7 +62,7 @@ class Arr
      * @param array $items
      * @param int $n
      */
-    public static function drop(array $items, $n = 1): array
+    public static function drop(array $items, int $n = 1): array
     {
         return array_slice($items, $n);
     }
@@ -71,9 +71,9 @@ class Arr
      * Returns the last element for which the provided function returns a truthy value.
      *
      * @param array $items
-     * @param [type] $func
+     * @param callable $func
      */
-    public static function findLast(array $items, $func)
+    public static function findLast(array $items, callable $func)
     {
         $filteredItems = array_filter($items, $func);
 
@@ -84,9 +84,9 @@ class Arr
      * Returns the index of the last element for which the provided function returns a truthy value.
      *
      * @param array $items
-     * @param [type] $func
+     * @param callable $func
      */
-    public static function findLastIndex(array $items, $func)
+    public static function findLastIndex(array $items, callable $func)
     {
         $keys = array_keys(array_filter($items, $func));
 
@@ -222,9 +222,9 @@ class Arr
      * Filters the collection using the given callback.
      *
      * @param array $items
-     * @param [type] $func
+     * @param callable $func
      */
-    public static function reject(array $items, $func)
+    public static function reject(array $items, callable $func)
     {
         return array_values(array_diff($items, array_filter($items, $func)));
     }
@@ -233,9 +233,9 @@ class Arr
      * Removes elements from an array for which the given function returns false.
      *
      * @param array $items
-     * @param [type] $func
+     * @param callable $func
      */
-    public static function remove(array $items, $func)
+    public static function remove(array $items, callable $func)
     {
         $filtered = array_filter($items, $func);
 
@@ -258,7 +258,7 @@ class Arr
      * @param array $items
      * @param int $n
      */
-    public static function take(array $items, $n = 1): array
+    public static function take(array $items, int $n = 1): array
     {
         return array_slice($items, 0, $n);
     }
