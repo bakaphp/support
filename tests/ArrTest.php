@@ -1,8 +1,11 @@
 <?php
 
-use Baka\Support\Arr;
+declare(strict_types=1);
 
-class ArrTest extends \Codeception\Test\Unit
+use Baka\Support\Arr;
+use PHPUnit\Framework\TestCase;
+
+class ArrTest extends TestCase
 {
     public function testAll()
     {
