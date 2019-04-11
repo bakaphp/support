@@ -14,13 +14,13 @@
         }
     ],
     "scripts": {
-        "test": "./vendor/bin/codecept run"
+        "test": "./vendor/bin/phpunit tests/*Test.php"
     },
     "require": {
-        "php": "^7.0"
+        "php": ">=7.1"
     },
      "require-dev": {
-        "codeception/codeception": "^2.5"
+        "phpunit/phpunit": "^7"
     },
     "autoload": {
         "psr-4": {

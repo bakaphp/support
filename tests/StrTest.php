@@ -1,8 +1,11 @@
 <?php
 
-use Baka\Support\Str;
+declare(strict_types=1);
 
-class StrTest extends \Codeception\Test\Unit
+use Baka\Support\Str;
+use PHPUnit\Framework\TestCase;
+
+class StrTest extends TestCase
 {
     public function testEndsWith()
     {

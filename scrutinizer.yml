@@ -1,44 +1,16 @@
-build:
-    root_path: './'
-    environment:
-        selenium: false
-        memcached: false
-        elasticsearch: false
-        rabbitmq: false
-        postgresql: false
-        redis: false
-        node: false
-        php:
-          version: 7.0
-          ini:
-            'date.timezone': 'UTC'
-            
-    dependencies:
-        before:
-          - 
-            command: echo "zend_extension=xdebug.so" | sudo tee -a "/home/scrutinizer/.phpenv/versions/$(php -v | grep -Po '(?<=^PHP )[^ ]+')/etc/php.ini"
-
-    tests:
-        override:
-          - composer test
-          -
-            command: './vendor/bin/codecept run --coverage-xml'
-            coverage:
-              file: './tests/_output/coverage.xml'
-              format: 'clover'
-
 filter:
   paths: ['./*']
   excluded_paths:
     - 'tests/*'
     - 'storage/*'
     - 'vendor/*'
-
 tools:
   php_analyzer: true
   php_mess_detector: true
-  php_code_coverage: true
-
+  external_code_coverage:
+    timeout: 600
+    runs: 1
+  php_code_coverage: false
 checks:
   php:
     verify_property_names: true
