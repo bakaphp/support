@@ -1,10 +1,12 @@
+[![Build Status](https://travis-ci.com/bakaphp/support.svg?branch=1.1.0)](https://travis-ci.com/bakaphp/support) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/bakaphp/support/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/bakaphp/support/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/bakaphp/support/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/bakaphp/support/?branch=master) [![Latest Stable Version](https://poser.pugx.org/baka/support/v/stable)](https://packagist.org/packages/baka/support) [![composer.lock](https://poser.pugx.org/baka/support/composerlock)](https://packagist.org/packages/baka/support) [![Total Downloads](https://poser.pugx.org/baka/support/downloads)](https://packagist.org/packages/baka/support) [![License](https://poser.pugx.org/baka/support/license)](https://packagist.org/packages/baka/support)
+
 # Baka Support
 
 A curated collection of useful PHP snippets.
 
 ## Requirements
 
-This package requires PHP 7.0 or higher.
+This package requires PHP 7.1 or higher.
 
 ## Installation
 
