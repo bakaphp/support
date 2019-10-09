@@ -12,7 +12,7 @@ class Arr
      */
     public static function all(array $items, callable $func): bool
     {
-        return count(array_filter($items, $func)) === count($items);
+        return \count(array_filter($items, $func)) === \count($items);
     }
 
     /**
@@ -23,7 +23,7 @@ class Arr
      */
     public static function any(array $items, callable $func): bool
     {
-        return count(array_filter($items, $func)) > 0;
+        return \count(array_filter($items, $func)) > 0;
     }
 
     /**
@@ -46,10 +46,10 @@ class Arr
     {
         $result = [];
         foreach ($items as $item) {
-            if (!is_array($item)) {
+            if (!\is_array($item)) {
                 $result[] = $item;
             } else {
-                $result = array_merge($result, self::deepFlatten($item));
+                array_push($result, ...self::deepFlatten($item));
             }
         }
 
@@ -64,7 +64,7 @@ class Arr
      */
     public static function drop(array $items, int $n = 1): array
     {
-        return array_slice($items, $n);
+        return \array_slice($items, $n);
     }
 
     /**
@@ -102,10 +102,10 @@ class Arr
     {
         $result = [];
         foreach ($items as $item) {
-            if (!is_array($item)) {
+            if (!\is_array($item)) {
                 $result[] = $item;
             } else {
-                $result = array_merge($result, array_values($item));
+                array_push($result, ...array_values($item));
             }
         }
 
@@ -122,10 +122,10 @@ class Arr
     {
         $group = [];
         foreach ($items as $item) {
-            if ((!is_string($func) && is_callable($func)) || function_exists($func)) {
-                $key = call_user_func($func, $item);
+            if ((!\is_string($func) && \is_callable($func)) || \function_exists($func)) {
+                $key = \call_user_func($func, $item);
                 $group[$key][] = $item;
-            } elseif (is_object($item)) {
+            } elseif (\is_object($item)) {
                 $group[$item->{$func}][] = $item;
             } elseif (isset($item[$func])) {
                 $group[$item[$func]][] = $item;
@@ -148,7 +148,7 @@ class Arr
     {
         $sortedItems = [];
         foreach ($items as $item) {
-            $key = is_object($item) ? $item->{$attr} : $item[$attr];
+            $key = \is_object($item) ? $item->{$attr} : $item[$attr];
             $sortedItems[$key] = $item;
         }
         if ('desc' === $order) {
@@ -169,7 +169,7 @@ class Arr
      */
     public static function hasDuplicates(array $items): bool
     {
-        return count($items) > count(array_unique($items));
+        return \count($items) > \count(array_unique($items));
     }
 
     /**
@@ -201,7 +201,7 @@ class Arr
     public static function pluck(array $items, $key)
     {
         return array_map(function ($item) use ($key) {
-            return is_object($item) ? $item->$key : $item[$key];
+            return \is_object($item) ? $item->$key : $item[$key];
         }, $items);
     }
 
@@ -249,7 +249,7 @@ class Arr
      */
     public static function tail(array $items)
     {
-        return count($items) > 1 ? array_slice($items, 1) : $items;
+        return \count($items) > 1 ? \array_slice($items, 1) : $items;
     }
 
     /**
@@ -260,7 +260,7 @@ class Arr
      */
     public static function take(array $items, int $n = 1): array
     {
-        return array_slice($items, 0, $n);
+        return \array_slice($items, 0, $n);
     }
 
     /**
