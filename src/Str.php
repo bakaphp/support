@@ -63,11 +63,7 @@ class Str
      */
     public static function includes(string $needle, string $haystack): bool
     {
-        if (false !== mb_strpos($haystack, $needle)) {
-            return true;
-        }
-
-        return false;
+        return false !== mb_strpos($haystack, $needle);
     }
 
     /**
@@ -144,7 +140,7 @@ class Str
     {
         preg_match_all('/[aeiou]/i', $string, $matches);
 
-        return count($matches[0]);
+        return \count($matches[0]);
     }
 
     /**
