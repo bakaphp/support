@@ -8,9 +8,9 @@ class Arr
      *Returns true if the provided function returns true for all elements of an array, false otherwise.
      *
      * @param array $items
-     * @param callable $func
+     * @param mixed $func
      */
-    public static function all(array $items, callable $func): bool
+    public static function all(array $items, $func): bool
     {
         return \count(array_filter($items, $func)) === \count($items);
     }
@@ -19,9 +19,9 @@ class Arr
      * Returns true if the provided function returns true for at least one element of an array, false otherwise.
      *
      * @param array $items
-     * @param callable $func
+     * @param mixed $func
      */
-    public static function any(array $items, callable $func): bool
+    public static function any(array $items, $func): bool
     {
         return \count(array_filter($items, $func)) > 0;
     }
@@ -71,9 +71,11 @@ class Arr
      * Returns the last element for which the provided function returns a truthy value.
      *
      * @param array $items
-     * @param callable $func
+     * @param mixed $func
+     *
+     * @return mixed
      */
-    public static function findLast(array $items, callable $func)
+    public static function findLast(array $items, $func)
     {
         $filteredItems = array_filter($items, $func);
 
@@ -84,9 +86,9 @@ class Arr
      * Returns the index of the last element for which the provided function returns a truthy value.
      *
      * @param array $items
-     * @param callable $func
+     * @param mixed $func
      */
-    public static function findLastIndex(array $items, callable $func)
+    public static function findLastIndex(array $items, $func)
     {
         $keys = array_keys(array_filter($items, $func));
 
@@ -116,7 +118,7 @@ class Arr
      * Groups the elements of an array based on the given function.
      *
      * @param array $items
-     * @param [type] $func
+     * @param mixed $func
      */
     public static function groupBy(array $items, $func): array
     {
@@ -139,12 +141,12 @@ class Arr
      * Sorts a collection of arrays or objects by key
      *
      * @param array $items
-     * @param [type] $attr
-     * @param [type] $order
+     * @param mixed $attr
+     * @param string $order
      *
      * @return array
      */
-    public static function orderBy(array $items, $attr, $order): array
+    public static function orderBy(array $items, $attr, string $order): array
     {
         $sortedItems = [];
         foreach ($items as $item) {
@@ -176,6 +178,8 @@ class Arr
      * Returns the head of a list.
      *
      * @param array $items
+     *
+     * @return mixed
      */
     public static function head(array $items)
     {
@@ -186,6 +190,8 @@ class Arr
      * Returns the last element in an array.
      *
      * @param array $items
+     *
+     * @return mixed
      */
     public static function last(array $items)
     {
@@ -196,7 +202,7 @@ class Arr
      * Retrieves all of the values for a given key:
      *
      * @param array $items
-     * @param [type] $key
+     * @param mixed $key
      */
     public static function pluck(array $items, $key)
     {
@@ -209,7 +215,7 @@ class Arr
      * Mutates the original array to filter out the values specified.
      *
      * @param array $items
-     * @param [type] ...$params
+     * @param mixed ...$params
      */
     public static function pull(&$items, ...$params)
     {
@@ -222,9 +228,9 @@ class Arr
      * Filters the collection using the given callback.
      *
      * @param array $items
-     * @param callable $func
+     * @param mixed $func
      */
-    public static function reject(array $items, callable $func)
+    public static function reject(array $items, $func)
     {
         return array_values(array_diff($items, array_filter($items, $func)));
     }
@@ -233,9 +239,9 @@ class Arr
      * Removes elements from an array for which the given function returns false.
      *
      * @param array $items
-     * @param callable $func
+     * @param mixed $func
      */
-    public static function remove(array $items, callable $func)
+    public static function remove(array $items, $func)
     {
         $filtered = array_filter($items, $func);
 
@@ -267,7 +273,7 @@ class Arr
      * Filters out the elements of an array, that have one of the specified values.
      *
      * @param array $items
-     * @param [type] ...$params
+     * @param mixed ...$params
      */
     public static function without(array $items, ...$params)
     {

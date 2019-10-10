@@ -82,7 +82,7 @@ class Str
     /**
      * Returns true if the given string is lower case, false otherwise.
      *
-     * @param [type] $string
+     * @param string $string
      *
      * @return bool
      */
@@ -94,11 +94,11 @@ class Str
     /**
      * Returns true if the given string is upper case, false otherwise.
      *
-     * @param [type] $string
+     * @param string $string
      *
      * @return bool
      */
-    public static function isUpperCase($string): bool
+    public static function isUpperCase(string $string): bool
     {
         return $string === mb_strtoupper($string);
     }
@@ -106,11 +106,11 @@ class Str
     /**
      * Returns true if the given string is a palindrome, false otherwise.
      *
-     * @param [type] $string
+     * @param string $string
      *
      * @return bool
      */
-    public static function palindrome($string): bool
+    public static function palindrome(string $string): bool
     {
         return strrev($string) === $string;
     }
@@ -147,12 +147,12 @@ class Str
      * Decapitalizes the first letter of the sring and then adds it with rest of the string. Omit the upperRest parameter to keep the
      * rest of the string intact, or set it to true to convert to uppercase.
      *
-     * @param [type] $string
+     * @param string $string
      * @param bool $upperRest
      *
      * @return string
      */
-    public static function decapitalize($string, $upperRest = false): string
+    public static function decapitalize(string $string, bool $upperRest = false): string
     {
         return mb_strtolower(mb_substr($string, 0, 1)) . ($upperRest ? mb_strtoupper(mb_substr($string, 1)) : mb_substr($string, 1));
     }
@@ -161,7 +161,7 @@ class Str
      *  Substring a string to specific lenght, but removing whole words
      *
      * @param string $string
-     * @param string $to
+     * @param int $to
      *
      * @return string
      */
@@ -189,6 +189,6 @@ class Str
             ++$letter;
         }
 
-        return $letter;
+        return (string) $letter;
     }
 }
