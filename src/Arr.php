@@ -138,7 +138,7 @@ class Arr
     }
 
     /**
-     * Sorts a collection of arrays or objects by key
+     * Sorts a collection of arrays or objects by key.
      *
      * @param array $items
      * @param mixed $attr
@@ -199,7 +199,7 @@ class Arr
     }
 
     /**
-     * Retrieves all of the values for a given key:
+     * Retrieves all of the values for a given key:.
      *
      * @param array $items
      * @param mixed $key
