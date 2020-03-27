@@ -5,7 +5,7 @@ namespace Baka\Support;
 class Str
 {
     /**
-     * Converts the underscore_notation to the UpperCamelCase
+     * Converts the underscore_notation to the UpperCamelCase.
      *
      * @param string $string
      * @param string $delimiter
@@ -27,7 +27,7 @@ class Str
 
     /**
      * Check if a string is ends with a given substring.
-     * public static function endsWith($haystack, $needle)
+     * public static function endsWith($haystack, $needle).
      *
      * @param string $haystack
      * @param string $needle
@@ -58,12 +58,26 @@ class Str
      *
      * @param string $needle
      * @param string $haystack
+     * @deprecated version 0.2
      *
      * @return bool
      */
     public static function includes(string $needle, string $haystack): bool
     {
-        return false !== mb_strpos($haystack, $needle);
+        return self::contains($haystack, $needle);
+    }
+
+    /**
+     * Lets you determine whether or not a string includes another string.
+     *
+     * @param string $needle
+     * @param string $haystack
+     *
+     * @return bool
+     */
+    public static function contains(string $haystack, string $needle): bool
+    {
+        return '' === $needle || false !== mb_strpos($haystack, $needle);
     }
 
     /**
@@ -158,7 +172,7 @@ class Str
     }
 
     /**
-     *  Substring a string to specific lenght, but removing whole words
+     *  Substring a string to specific lenght, but removing whole words.
      *
      * @param string $string
      * @param int $to
@@ -176,7 +190,7 @@ class Str
 
     /**
      * Convert a number to an excel column letter
-     * EJ: 'A'+22 = W;
+     * EJ: 'A'+22 = W;.
      *
      * @param string $letter Initial Letter
      * @param int $number Number of letters to increase

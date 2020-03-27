@@ -28,6 +28,13 @@ class StrTest extends TestCase
         );
     }
 
+    public function testContains()
+    {
+        $this->assertTrue(
+            Str::contains('This is an example string', 'example')
+        );
+    }
+
     public function testIsUpperCase()
     {
         $this->assertTrue(
