@@ -71,7 +71,7 @@ class Date
     }
 
     /**
-     * Validate a date given a format
+     * Validate a date given a format.
      *
      * @param string $date
      * @param string $format

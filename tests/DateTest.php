@@ -26,7 +26,6 @@ class DateTest extends TestCase
         );
     }
 
-
     public function testDaysAgo()
     {
         $timeAgo = Date::howLongAgo(date('Y-m-d H:i:s', strtotime('-28 hours')));
