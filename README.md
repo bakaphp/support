@@ -269,17 +269,17 @@ Decapitalizes the first letter of the string and then adds it with rest of the s
 decapitalize('FooBar'); // 'fooBar'
 ```
 
-### isContains
+### contains
 
 Check if a word / substring exist in a given string input.
 Using `strpos` to find the position of the first occurrence of a substring in a string. Returns either `true` or `false`
 
 ```php
-isContains('This is an example string', 'example'); // true
+contains('This is an example string', 'example'); // true
 ```
 
 ```php
-isContains('This is an example string', 'hello'); // false
+contains('This is an example string', 'hello'); // false
 ```
 
 ## License
